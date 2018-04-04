@@ -1,0 +1,13 @@
+package medj2se.agent;
+
+
+public class DoctorAgent extends Agent 
+  { 
+      protected void setup() 
+      { 
+          System.out.println("Hello World. ");
+          System.out.println("My name is "+ getLocalName()); 
+      }
+  }
+
+

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_medj2se" default="compile.module.medj2se">
+  <dirname property="module.medj2se.basedir" file="${ant.file.module_medj2se}"/>
+  
+  <property name="module.jdk.home.medj2se" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.medj2se" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.medj2se" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.medj2se" value="-encoding UTF-8 -source 8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="medj2se.output.dir" value="undefined"/>
+  <property name="medj2se.testoutput.dir" value="undefined"/>
+  
+  <path id="medj2se.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="medj2se.module.production.classpath">
+    <path refid="${module.jdk.classpath.medj2se}"/>
+  </path>
+  
+  <path id="medj2se.runtime.production.module.classpath"/>
+  
+  <path id="medj2se.module.classpath">
+    <path refid="${module.jdk.classpath.medj2se}"/>
+  </path>
+  
+  <path id="medj2se.runtime.module.classpath"/>
+  
+  
+  <patternset id="excluded.from.module.medj2se">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.medj2se">
+    <patternset refid="excluded.from.module.medj2se"/>
+  </patternset>
+  
+  
+  <target name="compile.module.medj2se" depends="compile.module.medj2se.production,compile.module.medj2se.tests" description="Compile module medj2se"/>
+  
+  <target name="compile.module.medj2se.production" depends="register.custom.compilers" description="Compile module medj2se; production classes"/>
+  
+  <target name="compile.module.medj2se.tests" depends="register.custom.compilers,compile.module.medj2se.production" description="compile module medj2se; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.medj2se" description="cleanup module">
+    <delete dir="${medj2se.output.dir}"/>
+    <delete dir="${medj2se.testoutput.dir}"/>
+  </target>
+</project>

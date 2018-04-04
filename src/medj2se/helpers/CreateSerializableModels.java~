@@ -1,0 +1,51 @@
+package medj2se.helpers;
+
+import medj2se.models.Drug;
+import medj2se.models.Patient;
+import java.util.*;
+
+public class CreateSerializableModels implements java.io.Serializable{
+
+    
+    
+     private ArrayList<Drug> drugList=null;
+     private Patient patient=null;
+     private boolean PATIENTSET=false;
+     private boolean DRUGSET = false;
+  
+    //getters    
+    public ArrayList<Drug> getDrugList(){
+        return drugList;
+    }
+    
+     public Patient getPatient(){
+       return patient;
+    }
+
+
+    public boolean isDrugSet(){
+	return this.DRUGSET;
+    }
+
+    public boolean isPatientSet(){
+	return this.PATIENTSET;
+    }
+
+
+    //==========================================
+
+    //modifiers
+
+    public void setDrugList(ArrayList<Drug> drugList){
+       this.drugList = drugList;
+       this.DRUGSET=true;
+    }
+
+
+    public void setPatient (Patient patient){
+      	this.patient = patient;
+	this.PATIENTSET=true;
+        
+    }
+
+}
